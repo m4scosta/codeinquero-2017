@@ -1,4 +1,30 @@
-<h2>Hello World</h2>
-<p>
-  The time is now: <%= Time.now %>
-</p>
+<div id="root" style="width: 320px; margin: 40px auto; padding: 10px; border-style: dashed; border-width: 1px; box-sizing: border-box;">
+    embedded area
+</div>
+<script src="https://cdn.auth0.com/js/lock/10.16/lock.min.js"></script>
+<script>
+  var lock = new Auth0Lock(
+    '<%= Rails.application.secrets.auth0_client_id %>',
+    '<%= Rails.application.secrets.auth0_domain %>', {
+    container: 'root',
+    language: 'pt-br',
+    languageDictionary: {
+    	title: 'Office Heroes'
+    },
+    theme: {
+    	logo: 'https://s3-sa-east-1.amazonaws.com/email-img/logo_qe.png',
+    	primaryColor: '#31324F'
+    },
+    auth: {
+      redirectUrl: '',
+      responseType: 'code',
+      params: {
+        scope: 'openid email' // Learn about scopes: https://auth0.com/docs/scopes
+      }
+    }
+  });
+</script>
+
+<div style="margin: 0 auto;">
+  <button onclick="lock.show();">Login</button>
+</div>
