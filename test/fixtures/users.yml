@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  email: MyString
+  received_points: 1
+  available_points: 1
+  giveable_points: 1
+
+two:
+  name: MyString
+  email: MyString
+  received_points: 1
+  available_points: 1
+  giveable_points: 1
