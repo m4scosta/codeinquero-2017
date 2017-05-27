@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  quest: one
+  points: 1
+  rewarded_user: one
+
+two:
+  quest: two
+  points: 1
+  rewarded_user: two
