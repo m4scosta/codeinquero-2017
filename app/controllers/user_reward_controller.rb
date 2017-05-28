@@ -1,5 +1,5 @@
 class UserRewardController < ApplicationController
-
+  before_action :authorize
   skip_before_action :verify_authenticity_token
 
   USER_REWARD_ATTRS = %w(description points)

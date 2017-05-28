@@ -1,5 +1,5 @@
 class QuestRewardController < ApplicationController
-
+  before_action :authorize
   skip_before_action :verify_authenticity_token
 
   def create

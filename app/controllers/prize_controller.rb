@@ -1,4 +1,5 @@
 class PrizeController < ApplicationController
+  before_action :authorize
   before_action :set_prize, only: [:show, :edit, :update, :destroy]
 
   # GET /prizes

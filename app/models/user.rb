@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  has_secure_password
   has_and_belongs_to_many :prizes
 
   # received_points is the total received since user created
@@ -6,7 +7,6 @@ class User < ApplicationRecord
 
   # TODO: implementar frozen points
 
-  validates :client_id, presence: true
   validates :points_to_give, numericality: { only_integer: true, greater_than: 0 }
   validates :received_points, numericality: { only_integer: true }
   validates :available_points, numericality: { only_integer: true }

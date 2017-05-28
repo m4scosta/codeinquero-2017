@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
   root 'welcome#index'
 
-  get 'eventos'              => 'home#index', as: :home
-  get 'dashboard'            => 'dashboard#show'
+  post '/identificacao'      => 'welcome#log_in'
+  get '/saida'               => 'welcome#logout', as: :logout
 
+  get '/eventos'             => 'home#index', as: :home
   post '/quests'             => 'quest#create'
   post '/quest_rewards'      => 'quest_reward#create'
   post '/user_rewards'       => 'user_reward#create'

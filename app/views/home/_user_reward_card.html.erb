@@ -13,7 +13,7 @@
         </li>
 
         <li class="itemSelect iPeople">
-          <span data-tooltip aria-haspopup="true" class="has-tip top active" data-disable-hover="false" tabindex="2" title="<%= reward.rewarded_user.at_name %>"><%= reward.rewarded_user.initials %> </span>
+          <span data-tooltip aria-haspopup="true" class="has-tip top active" style="<%= SecureRandom.hex(3) %>"> data-disable-hover="false" tabindex="2" title="<%= reward.rewarded_user.at_name %>"><%= reward.rewarded_user.initials %> </span>
         </li>
 
         <li class="itemSelect iPound poundIndicator">
