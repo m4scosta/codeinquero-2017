@@ -1,23 +1,51 @@
 <form id="user-reward-form">
   <div class="postItem mVBotL">
     <div class="row mVBotM align-justify">
-      <div class="columns large-7">
+      <div class="columns large-8">
         <ul class="clearfix itemSelectWrapper">
           <li class="itemSelect iPoints">
-            <span>Pontos</span>
-            <select id="points" name="points">
+            <span class="clicked active">Pontos</span>
+            <!-- <select id="points" name="points">
               <% points_options.each do |point| %>
                 <option value="<%= point %>">+ <%= point %></option>
               <% end %>
-            </select>
+            </select> -->
+
+            <ul class="itemList">
+              <li>
+                +1
+              </li>
+              <li>
+                +3
+              </li>
+              <li>
+                +5
+              </li>
+            </ul><!-- end itemList -->
+
           </li>
           <li class="itemSelect iPeople">
-            <span>Quem</span>
-            <select id="rewarded-user" name="rewarded-user">
+            <span class="clicked active">Quem</span>
+            <!-- <select id="rewarded-user" name="rewarded-user">
               <% other_users.each do |user| %>
                 <option value="<%= user.id %>"><%= user.name %></option>
               <% end %>
-            </select>
+            </select> -->
+
+            <ul class="itemList purple active">
+              <li>
+                <i>JP</i> <span>@jonathan.prieto</span>
+              </li>
+              <li>
+                <i>DI</i> <span>@dianeisonfire</span>
+              </li>
+              <li>
+                <i>MC</i> <span>@marcos.costa</span>
+              </li>
+              <li>
+                <i>NP</i> <span>@ney.pimenta</span>
+              </li>
+            </ul><!-- end itemList -->
           </li>
           <!-- <li class="itemSelect iPound">
             <span>
@@ -29,7 +57,7 @@
         </ul>
       </div>
 
-      <div class="columns large-5">
+      <div class="columns large-4">
         <span class="availablePoints">
           <strong><%= current_user.points_to_give %> pontos de recompensa</strong> disponíveis
         </span>

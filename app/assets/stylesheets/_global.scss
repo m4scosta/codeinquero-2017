@@ -26,6 +26,9 @@ $proxima: "proxima-soft", sans-serif;
 @mixin border-radius {
 	border-radius: 3px;
 }
+@mixin border-radius-active($var1, $var2, $var3, $var4) {
+	border-radius: $var1, $var2, $var3, $var4;
+}
 @mixin transition {
 	transition: all .3s ease-in-out;
 }
@@ -273,6 +276,7 @@ main {
 			list-style: none;
 			float: left;
 			padding-right: 8px;
+			position: relative;
 
 			> span {
 				padding: 8px;
@@ -298,6 +302,9 @@ main {
 						fill: $white;
 					}
 				}
+				&.clicked {
+					border-radius: 3px 3px 0 0!important;
+				}				
 			}
 			&.iPoints {
 
@@ -351,7 +358,7 @@ main {
 				}
 			}
 			&.iPeople {
-				span {
+				> span {
 					float: left;
 					margin-left: 4px;
 					position: relative;
@@ -360,12 +367,12 @@ main {
 					&:first-child {
 						margin-left: 0;
 					}
-					&.active:nth-child(1n+1) { background-color: $nameGray; border-color: $nameGray; }
-					&.active:nth-child(2n+2) { background-color: $nameOrange; border-color: $nameOrange; }
-					&.active:nth-child(3n+3) { background-color: $namePink; border-color: $namePink; }
-					&.active:nth-child(4n+4) { background-color: $nameBlue; border-color: $nameBlue; }
-					&.active:nth-child(5n+5) { background-color: $namePurple; border-color: $namePurple; }
-					i {
+					&.active:nth-child(2n+2) { background-color: $nameGray; border-color: $nameGray; }					
+					&.active:nth-child(3n+3) { background-color: $nameOrange; border-color: $nameOrange; }
+					&.active:nth-child(4n+4) { background-color: $namePink; border-color: $namePink; }
+					&.active:nth-child(5n+5) { background-color: $nameBlue; border-color: $nameBlue; }
+					&.active:nth-child(6n+6) { background-color: $namePurple; border-color: $namePurple; }
+					i {	
 						cursor: pointer;
 						position: absolute;
 						top: -1px;
@@ -457,6 +464,93 @@ main {
 					}
 				}
 			}
+			.itemList {
+				position: absolute;
+				top: calc(100% - 1px);
+				left: 0;
+				@include transition;
+				overflow: hidden;
+				max-height: 0;
+				min-width: 80px;
+				max-width: 200px;
+				margin: 0;
+				border-radius: 0 3px 3px 3px!important;
+
+				&:hover {
+					max-height: 1000px;
+				}				
+				li {
+					list-style: none;
+					padding: 8px 16px;
+					cursor: pointer;
+					color: $white;
+					font: 16px/1 $proxima;
+					background-color: darken($green, 5%);
+					@include transition;
+					display: table;
+					width: 100%;
+
+					i {
+						padding: 8px;
+						font-style: normal;
+						font-weight: 600;
+						font-size: 13px;
+						line-height: 1;
+						min-width: 30px;
+						min-height: 30px;
+						text-align: center;
+						display: inline-block;
+						background-color: $purple;
+						@include border-radius;
+						@include transition;
+						display: table-cell;
+
+					}
+					span {
+						display: table-cell;
+						padding-left: 8px;
+						text-overflow: ellipsis;
+						white-space: nowrap;
+						overflow: hidden;
+						max-width: 150px;
+					}
+					
+					&:first-child {						
+						border-radius: 0 3px 0 0!important;
+					}
+					&:last-child {
+						border-radius: 0 0 3px 3px!important;
+					}
+					&:hover {
+						background-color: $green;
+					}
+				}
+
+				&.active {
+					max-height: 1000px;
+				}
+			}
+			.itemList.purple {
+				li {
+					background-color: darken($purple, 10%);
+					padding: 8px 16px 8px 8px;
+					
+					&:hover {
+						background-color: $purple;
+
+						i {
+							background-color: $red;
+						}
+					}
+				}
+			}
+			span:hover {
+				border-radius: 3px 3px 0 0!important;
+
+				& ~ .itemList {
+					max-height: 1000px;
+				}
+			}		
 		}
 	}
 	.rewardComments {
@@ -468,7 +562,7 @@ main {
 		text-align: right;
 		color: $darkGray;
 		font-size: 14px;
-		line-height: 2.2;
+		line-height: 1;
 		display: block;
 	}
 }
