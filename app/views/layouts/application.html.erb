@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title><%= content_for?(:title) ? yield(:title) : "Morse code" %></title>
+    <title><%= content_for?(:title) ? yield(:title) : "Office Heroes" %></title>
 
     <%= stylesheet_link_tag    "application" %>
     <%= javascript_include_tag "application", 'data-turbolinks-track': 'reload' %>
@@ -36,7 +36,7 @@
           <div class="columns large-6">
             <div class=" floatRight userAvatar">
               <a class="clearfix" href="#">
-                <span><%= current_user.initials %></span> <%= current_user.name %>
+                <span><%= current_user.initials %></span> <%= current_user.first_name %>
               </a>
             </div>
             <div class="floatRight walletWrapper clearfix">
