@@ -8,14 +8,17 @@ $nameGray: #607D8B;
   margin: 1em 0;
   min-width: 300px;
 
+
   img {
     border-radius: 50%;
     width: 50px;
   }
+  .tableHeader {
 
+  }
   tr {
-    border-top: 1px solid $purple;
-    border-bottom: 1px solid $purple;
+    // border-top: 1px solid $purple;
+    // border-bottom: 1px solid $purple;
   }
 
   th {
@@ -71,7 +74,7 @@ $nameGray: #607D8B;
   }
 
   tr {
-    border-color: lighten(#34495E, 10%);
+    //border-color: lighten(#34495E, 10%);
   }
 
   th, td {
