@@ -8,7 +8,7 @@
             <span>Pontos</span>
             <ul class="itemList">
               <% points_options.each do |point| %>
-                <li data-name="points" data-value="<%= point %>">+ <%= point %></li>
+                <li data-name="points" data-value="<%= point %>" data-label="+ <%= point %>">+ <%= point %></li>
               <% end %>
             </ul>
           </li>
@@ -17,7 +17,7 @@
             <span>Quem</span>
             <ul class="itemList purple">
               <% other_users.each do |user| %>
-                <li data-name="rewarded-user" data-value="<%= user.id %>"><i><%= user.initials.upcase %></i><span><%= user.name %></span></li>
+                <li data-name="rewarded_user" data-value="<%= user.id %>" data-label="<%= user.initials.upcase %>"><i><%= user.initials.upcase %></i><span><%= user.at_name %></span></li>
               <% end %>
             </ul>
           </li>
