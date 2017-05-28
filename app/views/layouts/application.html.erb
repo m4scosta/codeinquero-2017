@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title><%= content_for?(:title) ? yield(:title) : "Morse code" %></title>
+    <title><%= content_for?(:title) ? yield(:title) : "Office Heroes" %></title>
 
     <%= stylesheet_link_tag    "application" %>
     <%= javascript_include_tag "application", 'data-turbolinks-track': 'reload' %>
@@ -32,15 +32,15 @@
           </a>
         </div><!-- end columns -->
 
+      <% if user_signed_in? %>
         <!-- WALLET & USER -->
         <div class="columns large-9">
 
-          <div class="row align-right align-middle">
-            
+          <div class="row align-right align-middle">            
 
             <div class="columns shrink walletWrapper hide-for-small-only">
               <span class="walletPoints">
-                <strong>182</strong> pontos              
+                <strong><%= current_user.points %></strong> pontos
               </span>
 
               <a class="btn ghost white" href="#">
@@ -48,15 +48,16 @@
               </a>
             </div><!-- end wallet-wrapper -->
 
-
             <div class="columns shrink userAvatar">
               <a class="clearfix" href="#">
-                <strong>JP</strong> <span class="hide-for-small-only">Jonathan</span>
+                <strong><%= current_user.initials %></strong> <span class="hide-for-small-only"><%= current_user.first_name %></span>
               </a>
             </div>
           </div><!-- end row -->
           
         </div><!-- end columns -->
+
+      <% end %>
       </div>
     </header>
     

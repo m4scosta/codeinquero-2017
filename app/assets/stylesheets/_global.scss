@@ -41,6 +41,10 @@ h1, h2, h3 { font-weight: 600!important; color: $darkerGray!important; }
 p { font-size: 18px!important; color: $darkerGray!important; }
 
 
+.auth0-lock-header {
+  background: black !important;
+}
+
 /* BUTTONS */
 .btn {
 	padding: 8px 32px;
@@ -107,7 +111,7 @@ header {
 			color: $red;
 		}
 	}
-	
+
 	.walletWrapper {
 		.walletPoints {
 			color: $yellow;
@@ -120,7 +124,7 @@ header {
 
 			strong {
 				font-weight: 900;
-			}			
+			}
 		}
 		a { display: table; }
 	}
@@ -149,7 +153,6 @@ header {
 			}
 
 			&:hover {
-
 				& strong { 
 					background-color: $red;
 				}
