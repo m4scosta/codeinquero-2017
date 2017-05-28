@@ -30,6 +30,10 @@ $ ->
   description = $('#description')
   data = {}
 
+  questForm = $('#quest-form')
+  questDescription = $('#quest-description')
+  questMaxParticipants = $('#quest-max-participants')
+
   $('.itemSelect').click ->
     $(this).children().toggleClass('active');
 
@@ -39,12 +43,16 @@ $ ->
     label = $(this).attr('data-label')
 
     data[name] = value
+
     $(this).closest('.itemSelect').children('span').html(label)
     $(this).closest('.itemSelect').children('span').addClass('selected')
     handleInputChange()
 
   handleInputChange = (ev) ->
     data['description'] = description.val()
+    data['quest_description'] = questDescription.val()
+    data['quest_max_participants'] = questMaxParticipants.val()
+
     if data['description'] && data['points'] && data['rewarded_user']
       submitBtn.removeClass('gray');
       submitBtn.addClass('green');
@@ -52,7 +60,15 @@ $ ->
       submitBtn.addClass('gray');
       submitBtn.removeClass('green');
 
-  userRewardForm.find('[name]').on 'keyup', -> handleInputChange()
+    if data['quest_description'] && data['quest_max_participants'] && data['quest_points']
+      $('#quest-submit').removeClass('gray');
+      $('#quest-submit').addClass('green');
+    else
+      $('#quest-submit').addClass('gray');
+      $('#quest-submit').removeClass('green');
+
+
+  $('[name]').on 'keyup', -> handleInputChange()
 
   submitBtn.click (ev) ->
     if !(data['description'] && data['points'] && data['rewarded_user'])
@@ -62,9 +78,15 @@ $ ->
     ev.preventDefault()
     $.when(createUserReward(data['rewarded_user'], data['description'], data['points'])).then(->
       location.reload()
-    ).catch(->
-      alert('erro')
     )
+
+  questForm.on 'submit', (ev) ->
+    ev.preventDefault()
+    if data['quest_description'] && data['quest_max_participants'] && data['quest_points']
+      $.when(createQuest('test.ico', data['quest_description'], data['quest_points'], data['quest_max_participants'])).then(->
+        location.reload()
+      )
+
 
 
   # $.when(createUserReward(1, 'test213123', 1)).then(->
