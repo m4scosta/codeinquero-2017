@@ -15,10 +15,11 @@ module Auth0Helper
   def authenticate_user!
     # Redirect to page that has the login here
     if user_signed_in?
-      @current_user = User.find_by!(client_id: client_id)
-    else
-      redirect_to login_path
+      @current_user = User.find_by(client_id: client_id)
+      return if @current_user.present?
     end
+
+    redirect_to login_path
   end
 
   # What's the current_user?
