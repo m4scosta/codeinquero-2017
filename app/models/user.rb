@@ -22,8 +22,17 @@ class User < ApplicationRecord
     self.save!
   end
 
+  def decrease_available_points!(points)
+    self.available_points -= points
+    self.save!
+  end
+
   def can_give?(points)
     self.points_to_give >= points
+  end
+
+  def can_redeem?(points)
+    self.available_points >= points
   end
 
   def first_name
@@ -36,5 +45,13 @@ class User < ApplicationRecord
 
   def initials
     "#{first_name.first}#{last_name.first}"
+  end
+
+  def choose_prize(prize)
+    if self.can_redeem?(prize.cost)
+      self.prizes << prize
+      self.decrease_available_points!(prize.cost)
+      true
+    end
   end
 end

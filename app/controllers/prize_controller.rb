@@ -7,9 +7,17 @@ class PrizeController < ApplicationController
     @prizes = Prize.available
   end
 
-  # GET /prizes/1
-  # GET /prizes/1.json
-  def show
+  def choose
+    head :bad_request if params[:id].blank?
+    prize_id = params[:id]
+    prize = Prize.find_by_id(prize_id)
+
+    if prize.present? && prize.quantity > 0 && current_user.choose_prize(prize)
+      prize.decrease_quantity!
+      render json: {}
+    else
+      head :conflict
+    end
   end
 
   # GET /prizes/new
