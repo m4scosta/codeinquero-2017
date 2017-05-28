@@ -7,14 +7,16 @@
       <div class="row">
         <% @prizes.each do |prize| %>
 
-          <div class="small-6 medium-4 columns">
+          <div class="small-6 medium-4 columns prize">
             <%= image_tag('kitkat.png') %>
             <%= prize.name %>
+            <br>
+            Custo: <%= pluralize(prize.cost, "ponto", "pontos") %>
             <br>
             <% if user_admin? %>
             <%= link_to 'Arquivar', archive_prize_path, method: :post, class: 'btn filled gray', data: { confirm: 'Tem certeza?' } %>
             <% else %>
-            <%= link_to 'Quero!', choose_prize_path, method: :post, class: 'btn filled green', data: { confirm: 'Tem certeza?' } %>
+            <%= link_to 'Quero!', choose_prize_path, method: :post, class: 'btn filled green js-choose', data: { confirm: 'Tem certeza?', id: prize.id } %>
             <% end %>
           </div>
 

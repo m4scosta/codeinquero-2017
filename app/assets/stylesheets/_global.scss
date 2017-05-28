@@ -41,7 +41,20 @@ $proxima: "proxima-soft", sans-serif;
 
 
 /* GLOBAL RULES */
-body { background-color: $lightGray!important; }
+
+// sticky footer
+body {
+  background-color: $lightGray!important;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
+}
+// sticky footer end
+
 .floatRight { float: right; }
 a, span, h1, h2, h3, h4, h5, h6, input, textarea, button { font-family: $proxima!important; @include transition; }
 
@@ -188,12 +201,12 @@ header {
 			}
 
 			&:hover {
-				& strong { 
+				& strong {
 					background-color: $red;
 				}
 			}
-		}		
-	}	
+		}
+	}
 }
 
 
@@ -230,7 +243,7 @@ main {
 	background-color: $white;
 	padding: 24px;
 	@include box-shadow-cards;
-		
+
 	textarea {
 		border: none;
 		font-size: 18px;
@@ -250,12 +263,12 @@ main {
 	}
 
 	button.gray {
-		
+
 	}
 	button.green {
-		
+
 	}
-	
+
 	.itemSelectWrapper {
 		margin: 0;
 
@@ -281,10 +294,10 @@ main {
 				width: auto;
 				min-width: 32px;
 
-				&:hover, &.active {					
+				&:hover, &.active {
 					background-color: $purple;
 					color: $white;
-					
+
 					svg {
 						fill: $white;
 					}
@@ -292,13 +305,13 @@ main {
 				&.clicked {
 					border-radius: 3px 3px 0 0!important;
 				}				
-			}			
+			}
 			&.iPoints {
-				
+
 				.active {
-					color: $white;				
+					color: $white;
 					background-color: $green;
-					border-color: $green;					
+					border-color: $green;
 				}
 				span {
 					border-color: $green;
@@ -310,9 +323,9 @@ main {
 						margin-left: 0;
 					}
 					&:hover {
-						color: $white;		
+						color: $white;
 						background-color: darken($green, 5%);
-						border-color: darken($green, 5%);					
+						border-color: darken($green, 5%);
 					}
 				}
 				.addPoints {
@@ -322,7 +335,7 @@ main {
 					width: 0;
 					display: none;
 					border-color: $green;
-					
+
 					&.visible {
 						opacity: 1;
 						visibility: visible;
@@ -339,8 +352,8 @@ main {
 						background-color: $green;
 
 						svg {
-							fill: $white;	
-						}							
+							fill: $white;
+						}
 					}
 				}
 			}
@@ -359,7 +372,7 @@ main {
 					&.active:nth-child(4n+4) { background-color: $namePink; border-color: $namePink; }
 					&.active:nth-child(5n+5) { background-color: $nameBlue; border-color: $nameBlue; }
 					&.active:nth-child(6n+6) { background-color: $namePurple; border-color: $namePurple; }
-					i {							
+					i {	
 						cursor: pointer;
 						position: absolute;
 						top: -1px;
@@ -398,7 +411,7 @@ main {
 						width: 0;
 						display: none;
 						border-color: $purple;
-						
+
 						&.visible {
 							opacity: 1;
 							visibility: visible;
@@ -415,8 +428,8 @@ main {
 							background-color: $purple;
 
 							svg {
-								fill: $white;	
-							}							
+								fill: $white;
+							}
 						}
 					}
 				}
@@ -448,7 +461,7 @@ main {
 							color: $darkGray;
 							font-weight: 500;
 						}
-					}					
+					}
 				}
 			}
 			.itemList {
@@ -538,7 +551,7 @@ main {
 					max-height: 1000px;
 				}
 			}		
-		}		
+		}
 	}
 	.rewardComments {
 		margin-bottom: 0;

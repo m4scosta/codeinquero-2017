@@ -13,7 +13,6 @@ module Auth0Helper
 
   # Set the @current_user or redirect to public page
   def authenticate_user!
-    return
     # Redirect to page that has the login here
     if user_signed_in?
       @current_user = User.find_by(client_id: client_id)
