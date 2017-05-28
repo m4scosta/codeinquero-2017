@@ -44,6 +44,8 @@ $ ->
 
     data[name] = value
 
+    console.log data
+
     $(this).closest('.itemSelect').children('span').html(label)
     $(this).closest('.itemSelect').children('span').addClass('selected')
     handleInputChange()
@@ -67,6 +69,12 @@ $ ->
       $('#quest-submit').addClass('gray');
       $('#quest-submit').removeClass('green');
 
+    if data['quest-who-completed']
+      $('#quest-reward-btn').removeClass('gray');
+      $('#quest-reward-btn').addClass('green');
+    else
+      $('#quest-reward-btn').addClass('gray');
+      $('#quest-reward-btn').removeClass('green');
 
   $('[name]').on 'keyup', -> handleInputChange()
 
@@ -87,14 +95,11 @@ $ ->
         location.reload()
       )
 
-
-
-  # $.when(createUserReward(1, 'test213123', 1)).then(->
-  #   console.log 'ok'
-  #   $.when(createQuest('test.ico', 'description test', 1, 10)).then(->
-  #     console.log 'ok'
-  #     $.when(createQuestReward(1, 6)).then(->
-  #       console.log 'ok'
-  #     )
-  #   )
-  # )
+  $('#quest-reward-form').on 'submit', (ev) ->
+    ev.preventDefault()
+    quest_id = $(this).attr('data-quest-id')
+    console.log quest_id, data['quest-who-completed']
+    if data['quest-who-completed'] && quest_id
+      $.when(createQuestReward(data['quest-who-completed'], quest_id)).then(->
+        location.reload()
+      )

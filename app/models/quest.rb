@@ -9,6 +9,8 @@ class Quest < ApplicationRecord
       QuestReward.create(quest: self, points: self.reward_points, rewarded_user: rewarded_user)
       rewarded_user.increase_points(self.reward_points)
       self.created_by.decrease_points_to_give(self.reward_points)
+      self.available = false
+      self.save
       true
     end
   end

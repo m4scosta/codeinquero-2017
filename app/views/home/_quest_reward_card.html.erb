@@ -16,9 +16,17 @@
   <div class="row">
     <div class="columns">
       <p class="rewardComments">
-        <strong><%= reward.start_user.at_name %></strong> completou a missão <%= reward.description %> de <strong><%= reward.start_user.at_name %></strong>
+        <strong><%= reward.rewarded_user.at_name %></strong> concluiu a missão <i><%= reward.description %></i> de <strong><%= reward.start_user.at_name %></strong>
       </p>
     </div><!-- end columns -->
   </div><!-- end row -->
+
+  <div class="row">
+    <div class="columns">
+      <p class="rewardComments">
+        <small class="reward-time">Conluída em <%= reward.created_at.strftime('%d/%m/%Y %H:%M') %></small>
+      </p>
+    </div>
+  </div>
 
 </div><!-- end postItem -->
