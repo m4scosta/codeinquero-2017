@@ -24,7 +24,7 @@
 
       <div class="columns large-4">
         <span class="availablePoints">
-          <strong><%= current_user.points_to_give %> pontos</strong> disponíveis
+          <%= current_user.points_to_give %> pontos disponíveis
         </span>
       </div><!-- end columns -->
     </div><!-- end row -->
@@ -35,9 +35,11 @@
       </div><!-- end columns -->
     </div><!-- end row -->
 
+    <div class="mVBotM divider"></div>
+
     <div class="row mVBotM">
       <div class="columns">
-        <textarea id="quest-max-participants" name="quest-max-participants" placeholder="Qual o número máximo de participantes?"></textarea>
+        <input id="quest-max-participants" name="quest-max-participants" type="text" placeholder="Qual o número máximo de participantes?">
       </div><!-- end columns -->
     </div><!-- end row -->
 
