@@ -6,8 +6,6 @@ class User < ApplicationRecord
 
   # TODO: implementar frozen points
 
-  before_save :set_defaults
-
   validates :client_id, presence: true
   validates :points_to_give, numericality: { only_integer: true, greater_than: 0 }
   validates :received_points, numericality: { only_integer: true }
@@ -38,13 +36,5 @@ class User < ApplicationRecord
 
   def initials
     "#{first_name.first}#{last_name.first}"
-  end
-
-  private
-
-  def set_defaults
-    self.points_to_give = 100
-    self.received_points = 0
-    self.available_points = 0
   end
 end
