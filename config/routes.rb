@@ -13,4 +13,6 @@ Rails.application.routes.draw do
   get '/resgate'             => 'prize#index', as: :prize_index
   post '/arquivar-premio'	 => 'prize#archive', as: :archive_prize # for admins
   post '/escolher-premio'    => 'prize#choose', as: :choose_prize
+
+  get '/ranking'             => 'ranking#index', as: :ranking
 end

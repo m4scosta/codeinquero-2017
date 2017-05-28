@@ -11,6 +11,8 @@ class User < ApplicationRecord
   validates :received_points, numericality: { only_integer: true }
   validates :available_points, numericality: { only_integer: true }
 
+  scope :most_rewarded_first, -> { order(received_points: :desc) }
+
   def increase_points(points)
     self.received_points += points
     self.available_points += points
