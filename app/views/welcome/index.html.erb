@@ -5,7 +5,7 @@
     '<%= Rails.application.secrets.auth0_domain %>', {
     language: 'pt-br',
     languageDictionary: {
-    	title: 'Office Heroes'
+    	title: ''
     },
     popupOptions: { width: 300, height: 400, left: 200, top: 300 },
     theme: {
@@ -21,8 +21,5 @@
       }
     }
   });
+  lock.show();
 </script>
-
-<div style="margin: 0 auto; border: 1px solid red; width: 100px;">
-  <button onclick="lock.show();">Login</button>
-</div>

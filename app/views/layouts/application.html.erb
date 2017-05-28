@@ -31,26 +31,26 @@
           </a>
         </div><!-- end columns -->
 
-        <!-- WALLET & USER -->
-        <div class="columns large-6">
+        <% if user_signed_in? %>
+          <!-- WALLET & USER -->
+          <div class="columns large-6">
+            <div class=" floatRight userAvatar">
+              <a class="clearfix" href="#">
+                <% binding.pry %>
+                <span><%= current_user.initials %></span> <%= current_user.name %>
+              </a>
+            </div>
+            <div class="floatRight walletWrapper clearfix">
+              <span class="walletPoints">
+                <strong>182</strong> pontos
+              </span>
 
-          <div class=" floatRight userAvatar">
-            <a class="clearfix" href="#">
-              <span>JP</span> Jonathan
-            </a>
-          </div>
-
-          <div class="floatRight walletWrapper clearfix">
-            <span class="walletPoints">
-              <strong>182</strong> pontos              
-            </span>
-
-            <a class="btn ghost white" href="#">
-              Resgatar
-            </a>
-          </div><!-- end wallet-wrapper -->
-          
-        </div><!-- end columns -->
+              <a class="btn ghost white" href="#">
+                Resgatar
+              </a>
+            </div><!-- end wallet-wrapper -->
+          </div><!-- end columns -->
+        <% end %>
       </div>
     </header>
 

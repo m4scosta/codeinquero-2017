@@ -12,7 +12,7 @@ class Auth0Controller < ApplicationController
     end
 
     # Redirect to the URL you want after successful auth
-    redirect_to '/dashboard'
+    redirect_to home_path
   end
 
   # This handles authentication failures

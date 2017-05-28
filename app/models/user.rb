@@ -19,4 +19,16 @@ class User < ApplicationRecord
   def can_give?(points)
     self.points_to_give >= points
   end
+
+  def first_name
+    self.name.to_s[/\A[[:space:]]*(?<first_name>[[:graph:]]+)/, :first_name]
+  end
+
+  def last_name
+    self.name.to_s[/[[:space:]]+(?<last_name>[[:print:]]*)/, :last_name] || ''
+  end
+
+  def initials
+    "#{first_name.first} #{last_name.first}"
+  end
 end
