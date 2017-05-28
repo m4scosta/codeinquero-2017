@@ -27,15 +27,25 @@ $ ->
 
   submitBtn = $('#submit-btn')
   userRewardForm = $('#user-reward-form')
-  points = $('#points')
-  rewardedUser = $('#rewarded-user')
   description = $('#description')
+  data = {}
 
   $('.itemSelect').click ->
     $(this).children().toggleClass('active');
 
+  $('.itemSelect .itemList li').click ->
+    value = $(this).attr('data-value')
+    name = $(this).attr('data-name')
+    label = $(this).attr('data-label')
+
+    data[name] = value
+    $(this).closest('.itemSelect').children('span').html(label)
+    $(this).closest('.itemSelect').children('span').addClass('selected')
+    handleInputChange()
+
   handleInputChange = (ev) ->
-    if points.val() && rewardedUser.val() && description.val()
+    data['description'] = description.val()
+    if data['description'] && data['points'] && data['rewarded_user']
       submitBtn.removeClass('gray');
       submitBtn.addClass('green');
     else
@@ -44,15 +54,13 @@ $ ->
 
   userRewardForm.find('[name]').on 'keyup', -> handleInputChange()
 
-  userRewardForm.find('[name]').change -> handleInputChange()
-
   submitBtn.click (ev) ->
-    if !(points.val() && rewardedUser.val() && description.val())
+    if !(data['description'] && data['points'] && data['rewarded_user'])
       ev.preventDefault()
 
   userRewardForm.on 'submit', (ev) ->
     ev.preventDefault()
-    $.when(createUserReward(rewardedUser.val(), description.val(), points.val())).then(->
+    $.when(createUserReward(data['rewarded_user'], data['description'], data['points'])).then(->
       location.reload()
     ).catch(->
       alert('erro')

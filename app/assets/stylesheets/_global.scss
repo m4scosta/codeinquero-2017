@@ -292,13 +292,14 @@ main {
 				min-width: 32px;
 
 				&:hover, &.active {
-					background-color: $purple;
-					color: $white;
+					// background-color: $purple;
+					// color: $white;
 
 					svg {
 						fill: $white;
 					}
 				}
+
 				&.clicked {
 					border-radius: 3px 3px 0 0!important;
 				}
@@ -323,7 +324,7 @@ main {
 						// border-color: darken($green, 5%);
 					}
 
-					&.active {
+					&.active, &.selected {
 						color: $white;
 						background-color: $green;
 						border-color: $green;
@@ -365,6 +366,11 @@ main {
 					position: relative;
 					z-index: 1;
 
+					&.active, &.selected {
+						background-color: $purple;
+						color: $white;
+					}
+
 					&:first-child {
 						margin-left: 0;
 					}
@@ -398,6 +404,7 @@ main {
 							display: table;
 						}
 					}
+
 					&.active:hover {
 						i {
 							opacity: 1;
@@ -466,6 +473,7 @@ main {
 				}
 			}
 			.itemList {
+				z-index: 999;
 				position: absolute;
 				top: calc(100% - 1px);
 				left: 0;
@@ -546,9 +554,9 @@ main {
 					}
 				}
 			}
-			span:hover {
-				border-radius: 3px 3px 0 0!important;
-			}
+			// span:hover {
+			// 	border-radius: 3px 3px 0 0!important;
+			// }
 		}
 	}
 	.reward-time {
