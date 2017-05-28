@@ -21,37 +21,132 @@
   <body>
 
     <%= yield %>
+
     <header>
       <div class="row align-justify">
 
         <!-- LOGO -->
-        <div class="columns large-6">
+        <div class="columns large-3">
           <a class="logo" href="#">
             Office<strong>Heroes</strong>
           </a>
         </div><!-- end columns -->
 
-        <% if user_signed_in? %>
-          <!-- WALLET & USER -->
-          <div class="columns large-6">
-            <div class=" floatRight userAvatar">
-              <a class="clearfix" href="#">
-                <span><%= current_user.initials %></span> <%= current_user.first_name %>
-              </a>
-            </div>
-            <div class="floatRight walletWrapper clearfix">
+      <% if user_signed_in? %>
+        <!-- WALLET & USER -->
+        <div class="columns large-9">
+
+          <div class="row align-right align-middle">            
+
+            <div class="columns shrink walletWrapper hide-for-small-only">
               <span class="walletPoints">
-                <strong>182</strong> pontos
+                <strong><%= current_user.points %></strong> pontos
               </span>
 
               <a class="btn ghost white" href="#">
                 Resgatar
               </a>
             </div><!-- end wallet-wrapper -->
-          </div><!-- end columns -->
-        <% end %>
+
+            <div class="columns shrink userAvatar">
+              <a class="clearfix" href="#">
+                <strong><%= current_user.initials %></strong> <span class="hide-for-small-only"><%= current_user.first_name %></span>
+              </a>
+            </div>
+          </div><!-- end row -->
+          
+        </div><!-- end columns -->
+
+      <% end %>
       </div>
     </header>
+    
+    <!-- MAIN CONTENT -->
+    <main>
+      
+      <div class="row">
+
+        <!-- MAIN BLOCK -->
+        <div class="columns large-8">
+          <section class="row">
+            <div class="columns large-12">
+              <p>Quem foi o seu Herói hoje? Conte para todos!</p>
+            </div>
+
+            <div class="columns large-12">
+              <div class="postItem">
+                <div class="row align-justify">
+                  <div class="columns">
+                    <ul>
+                      <li class="itemSelect iPoints">
+                        <span>Pontos</span>
+                      </li>
+                      <li class="itemSelect iPeople">
+                        <span>Quem</span>
+                      </li>
+                      <li class="itemSelect iPound">
+                        <span>
+                          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+                            <path fill="#2E294E" fill-rule="evenodd" d="M16.872 22.547l-3.993.615-1.057 6.433C11.596 30.982 10.397 32 8.99 32c-1.142 0-2.07-.927-2.07-2.07 0-.112.01-.224.028-.335l.93-5.664-5.62.865c-1.07.165-2.07-.57-2.235-1.64-.015-.098-.023-.198-.023-.298 0-1.315.96-2.433 2.26-2.633l6.387-.983.71-4.328-4.812.74c-1.07.165-2.072-.57-2.236-1.64-.017-.098-.024-.198-.024-.298 0-1.315.96-2.433 2.26-2.633l5.58-.858.908-5.53c.228-1.388 1.426-2.406 2.832-2.406 1.143 0 2.07.927 2.07 2.07 0 .112-.01.224-.027.335l-.782 4.763 3.993-.615 1.057-6.433C20.404 1.018 21.603 0 23.01 0c1.142 0 2.07.927 2.07 2.07 0 .112-.01.224-.028.335l-.93 5.664 5.62-.865c1.07-.165 2.07.57 2.235 1.64.015.098.023.198.023.298 0 1.315-.96 2.433-2.26 2.633l-6.387.983-.71 4.328 4.812-.74c1.07-.165 2.072.57 2.236 1.64.017.098.024.198.024.298 0 1.315-.96 2.433-2.26 2.633l-5.58.858-.908 5.53c-.228 1.388-1.426 2.406-2.832 2.406-1.143 0-2.07-.927-2.07-2.07 0-.112.01-.224.027-.335l.782-4.763zm.77-4.69l.71-4.33-3.994.616-.71 4.33 3.994-.616z"/>
+                          </svg>
+                        </span>
+                      </li>
+                    </ul>
+                  </div>
+
+                  <div class="columns">
+                    <span>
+                      <strong>182 pontos</strong> disponíveis
+                    </span>
+                  </div><!-- end columns -->
+                </div><!-- end row -->
+
+                <div class="row">
+                  <div class="columns">
+                    <textarea id="" placeholder="O mundo precisa saber o que aconteceu... comente aqui!"></textarea>
+                  </div><!-- end columns -->
+                </div><!-- end row -->
+
+                <div class="row align-right">
+                  <div class="columns">
+                    <button class="btn filled gray right">Recompensar</button>
+                  </div><!-- end columns -->
+                </div><!-- end row -->
+
+              </div><!-- end postItem -->
+            </div><!-- end columns -->
+          </section>
+        </div>
+        
+        <!-- ASIDE -->
+        <div class="columns large-4">
+          <aside class="row">
+            <div class="columns large-12">
+              <div class="postItem">
+                
+              </div>
+            </div>
+          </aside>
+        </div>        
+      </div>     
+
+    </main>
+
+
+    <footer>
+      <div class="row">
+        <div class="columns large-6">
+          <span>
+            Todos os direitos reservados.
+          </span>
+        </div>
+        <div class="columns large-6">
+          <span class="madeWithLove">
+            Feito com <i>♥</i> por Morse Code
+          </span>
+        </div>
+      </div>
+    </footer>
 
   </body>
 </html>

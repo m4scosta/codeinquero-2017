@@ -5,27 +5,40 @@ $darkPurple: #252140;
 $white: #fff;
 $yellow: #FFAE03;
 $red: #EF5E60;
+$green: #20BC62;
 
- /* font */
+$lightGray: #F9F9F9;
+$mediumGray: #DDDDDD;
+$darkGray: #9C9CA5;
+$darkerGray: #595457;
+
+/* font */
 $proxima: "proxima-soft", sans-serif;
 
 
 /* MIXINS */
 @mixin border-radius {
-	-webkit-border-radius: 3px;
-	-moz-border-radius: 3px;
 	border-radius: 3px;
 }
 @mixin transition {
-	-webkit-transition: all .3s ease-in-out;
-	-moz-transition: all .3s ease-in-out;
 	transition: all .3s ease-in-out;
+}
+@mixin box-shadow {
+	box-shadow: 1px 0 5px rgba(0,0,0,.15);
+}
+@mixin box-shadow-cards {
+	box-shadow: 0px 2px 5px rgba(0,0,0,.1);
 }
 
 
 /* GLOBAL RULES */
+body { background-color: $lightGray!important; }
 .floatRight { float: right; }
-a, span, p, h1, h2, h3, h4, h5, h6 { font-family: $proxima; @include transition; }
+a, span, strong, p, h1, h2, h3, h4, h5, h6, input, textarea, button { font-family: $proxima!important; @include transition; }
+
+h1, h2, h3 { font-weight: 600!important; color: $darkerGray!important; }
+
+p { font-size: 18px!important; color: $darkerGray!important; }
 
 
 .auth0-lock-header {
@@ -38,18 +51,39 @@ a, span, p, h1, h2, h3, h4, h5, h6 { font-family: $proxima; @include transition;
 	@include border-radius;
 	text-transform: uppercase;
 	letter-spacing: 1px;
-	font: 13px/1 $proxima;
+	font: 13px/2 $proxima;
 	font-weight: 600;
 	color: $white;
+	min-height: 40px;
+
+	&.right { float: right; }
+	&.left { float: right; }
+	&.center { display: table; margin: auto; }
 
 	&.ghost {
 
 		&.white {
 			background-color: transparentize($white, .9);
 
-			&:hover {
+			&:hover, &:active {
 				color: $yellow;
 				background-color: transparentize($white, .85);
+			}
+		}
+	}
+
+	&.filled {
+		cursor: pointer;
+
+		&.gray {
+			background-color: $darkGray;
+			cursor: not-allowed!important;
+		}
+		&.green {
+			background-color: $green;
+
+			&:hover, &:active {
+				background-color: darken($green, 5%);
 			}
 		}
 	}
@@ -59,21 +93,21 @@ a, span, p, h1, h2, h3, h4, h5, h6 { font-family: $proxima; @include transition;
 /* HEADER */
 header {
 	background-color: $purple;
-	padding: 16px 0;
-	box-shadow: 1px 0 5px rgba(0,0,0, .15);
+	padding: 8px 0;
+	@include box-shadow;
 
 	.logo {
 		color: $white;
 		text-transform: uppercase;
 		font-weight: 100;
 		font-size: 24px;
-		line-height: 1.3;
+		line-height: 1.8;
 
 		strong {
 			font-weight: 900;
 		}
 
-		&:hover {
+		&:hover, &:active {
 			color: $red;
 		}
 	}
@@ -82,20 +116,21 @@ header {
 		.walletPoints {
 			color: $yellow;
 			font-size: 18px;
-			line-height: 1.6;
+			line-height: 2.2;
 			font-weight: 300;
 			padding-right: 8px;
+			float: left;
+			display: table;
 
 			strong {
 				font-weight: 900;
 			}
 		}
+		a { display: table; }
 	}
 
 	.userAvatar {
-		padding-left: 24px;
 		border-left: 1px solid $darkPurple;
-		margin-left: 24px;
 
 		a {
 			color: $white;
@@ -103,7 +138,7 @@ header {
 			line-height: 1.8;
 			display: block;
 
-			span {
+			strong {
 				padding: 8px;
 				background-color: $darkPurple;
 				@include border-radius;
@@ -118,13 +153,82 @@ header {
 			}
 
 			&:hover {
-
-				& span {
+				& strong { 
 					background-color: $red;
 				}
 			}
-		}
+		}		
+	}	
+}
 
+
+/* FOOTER */
+footer {
+	background-color: $white;
+	padding: 24px 0;
+	border-top: 1px solid $mediumGray;
+
+	span {
+		color: $darkerGray;
+		font-size: 15px;
+		line-height: 1;
+		display: block;
+	}
+	.madeWithLove {
+		text-align: right;
+
+		i {
+			color: $red;
+			font-style: normal;
+		}
+	}
+}
+
+
+/* MAIN CONTENT */
+main {
+	padding: 32px 0;
+}
+
+.postItem {
+	@include border-radius;
+	background-color: $white;
+	padding: 24px;
+	@include box-shadow-cards;
+		
+	textarea {
+		border: none;
+		font-size: 18px;
+		line-height: 26px;
+		box-shadow: none;
+		height: auto;
+		resize: none;
+	    outline: none;
+
+		&:focus, &:hover {
+			border: none;
+			box-shadow: none;
+			color: $darkerGray;
+		}
 	}
 
+	button.gray {
+		
+	}
+	button.green {
+		
+	}
+
+	.itemSelect {
+
+		> span {
+			
+			&.active {
+				
+			}
+		}
+		&.iPoints {
+
+		}
+	}
 }

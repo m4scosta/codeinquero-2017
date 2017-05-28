@@ -1,9 +1,12 @@
 class Auth0Controller < ApplicationController
   # This stores all the user information that came from Auth0
   # and the IdP
+
+  skip_before_action :verify_authenticity_token
+
   def callback
     session[:userinfo] = request.env['omniauth.auth']
-    client_id = session[:userinfo].extra.raw_info.client_id
+    client_id = session[:userinfo].extra.raw_info.clientID
 
     unless User.find_by(client_id: client_id).present?
       info = session[:userinfo].info
