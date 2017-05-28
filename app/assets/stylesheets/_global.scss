@@ -28,6 +28,10 @@ $proxima: "proxima-soft", sans-serif;
 a, span, p, h1, h2, h3, h4, h5, h6 { font-family: $proxima; @include transition; }
 
 
+.auth0-lock-header {
+  background: black !important;
+}
+
 /* BUTTONS */
 .btn {
 	padding: 8px 32px;
@@ -73,7 +77,7 @@ header {
 			color: $red;
 		}
 	}
-	
+
 	.walletWrapper {
 		.walletPoints {
 			color: $yellow;
@@ -84,7 +88,7 @@ header {
 
 			strong {
 				font-weight: 900;
-			}			
+			}
 		}
 	}
 
@@ -115,12 +119,12 @@ header {
 
 			&:hover {
 
-				& span { 
+				& span {
 					background-color: $red;
 				}
 			}
 		}
-		
+
 	}
-	
+
 }
