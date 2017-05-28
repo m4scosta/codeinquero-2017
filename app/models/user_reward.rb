@@ -4,6 +4,14 @@ class UserReward < ApplicationRecord
 
   scope :newest_first, -> { order(created_at: :desc) }
 
+  def start_user
+    self.rewarding_users.find_by(started: true).user
+  end
+
+  def total_points
+    self.rewarding_users.pluck(:points).sum
+  end
+
   def self.reward(from:, to:, description:, points:)
     if points > 0 && from.can_give?(points)
       reward = create(description: description, rewarded_user: to)

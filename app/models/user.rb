@@ -11,6 +11,8 @@ class User < ApplicationRecord
   validates :received_points, numericality: { only_integer: true }
   validates :available_points, numericality: { only_integer: true }
 
+  scope :most_rewarded_first, -> { order(received_points: :desc) }
+
   def increase_points(points)
     self.received_points += points
     self.available_points += points
@@ -43,8 +45,16 @@ class User < ApplicationRecord
     self.name.to_s[/[[:space:]]+(?<last_name>[[:print:]]*)/, :last_name] || ''
   end
 
+  def at_name
+    '@' + name.split(' ').join('.').downcase
+  end
+
   def initials
-    "#{first_name.first}#{last_name.first}"
+    unless last_name.blank?
+      "#{first_name.first}#{last_name.first}"
+    else
+      "#{first_name[0..1]}"
+    end
   end
 
   def choose_prize(prize)

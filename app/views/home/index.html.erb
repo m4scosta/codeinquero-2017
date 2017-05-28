@@ -10,8 +10,15 @@
     <section class="row">
       <div class="columns large-12">
         <%= render 'user_reward_form' %>
-        
-        <%= render 'user_reward_card' %>
+
+        <% timeline.each do |reward| %>
+          <% if reward.is_a?(QuestReward) %>
+            <%= render 'quest_reward_card', reward: reward %>
+          <% else %>
+            <%= render 'user_reward_card', reward: reward %>
+          <% end %>
+        <% end %>
+
       </div><!-- end columns -->
     </section>
   </div>

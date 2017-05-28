@@ -1,0 +1,24 @@
+<div class="postItem mVBotL">
+  <div class="row align-justify mVBotM">
+    <div class="columns large-12">
+      <ul class="clearfix itemSelectWrapper">
+        <li class="itemSelect iPoints">
+          <span class="active">+<%= reward.total_points %></span>
+        </li>
+
+        <li class="itemSelect iPeople">
+          <span data-tooltip aria-haspopup="true" class="has-tip top active" data-disable-hover="false" tabindex="2" title="<%= reward.rewarded_user.at_name %>"><%= reward.rewarded_user.initials %> </span>
+        </li>
+      </ul>
+    </div>
+  </div><!-- end row -->
+
+  <div class="row">
+    <div class="columns">
+      <p class="rewardComments">
+        <strong><%= reward.start_user.at_name %></strong> completou a missão <%= reward.description %> de <strong><%= reward.start_user.at_name %></strong>
+      </p>
+    </div><!-- end columns -->
+  </div><!-- end row -->
+
+</div><!-- end postItem -->
