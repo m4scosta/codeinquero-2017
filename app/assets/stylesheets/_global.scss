@@ -45,6 +45,10 @@ p { font-size: 18px!important; color: $darkerGray!important; }
   background: black !important;
 }
 
+.auth0-lock-close-button {
+  display: none;
+}
+
 /* BUTTONS */
 .btn {
 	padding: 8px 32px;
