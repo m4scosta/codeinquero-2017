@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  has_and_belongs_to_many :prizes
 
   # received_points is the total received since user created
   # available_points are the amount available to exchange for prizes
