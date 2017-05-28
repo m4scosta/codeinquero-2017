@@ -34,9 +34,12 @@
 
     <aside class="row">
       <div class="columns large-12">
-        
-        <%= render 'quest_form' %>
 
+        <% unless my_quest.present? %>
+          <%= render 'quest_form' %>
+        <% else %>
+          <%= render 'my_quest_card' %>
+        <% end %>
       </div>
     </aside>
   </div>

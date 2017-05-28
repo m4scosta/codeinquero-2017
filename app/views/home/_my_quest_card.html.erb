@@ -1,13 +1,17 @@
-<form id="quest-form">
+<form data-quest-id="<%= my_quest.id %>" id="quest-reward-form">
   <div class="postItem mVBotL">
     <div class="row mVBotM align-justify">
-      <div class="columns large-8">
+      <div class="columns large-9">
         <ul class="clearfix itemSelectWrapper">
           <li class="itemSelect iPoints">
-            <span>Pontos</span>
-            <ul class="itemList">
-              <% points_options.each do |point| %>
-                <li data-name="quest_points" data-value="<%= point %>" data-label="+ <%= point %>">+ <%= point %></li>
+            <span class="active">+<%= my_quest.reward_points %></span>
+          </li>
+
+          <li class="itemSelect iPeople">
+            <span>Quem completou?</span>
+            <ul class="itemList purple">
+              <% other_users.each do |user| %>
+                <li data-name="quest-who-completed" data-value="<%= user.id %>" data-label="<%= user.initials.upcase %>"><i><%= user.initials.upcase %></i><span><%= user.at_name %></span></li>
               <% end %>
             </ul>
           </li>
@@ -22,28 +26,24 @@
         </ul>
       </div>
 
-      <div class="columns large-4">
+      <div class="columns large-3">
         <span class="availablePoints">
-          <strong><%= current_user.points_to_give %> pontos</strong> disponíveis
+          máximo <%= my_quest.max_participants %> participantes
         </span>
       </div><!-- end columns -->
     </div><!-- end row -->
 
     <div class="row mVBotM">
       <div class="columns">
-        <input id="quest-description" name="quest-description" type="text" placeholder="Dê uma desrição da sua missão...">
-      </div><!-- end columns -->
-    </div><!-- end row -->
-
-    <div class="row mVBotM">
-      <div class="columns">
-        <textarea id="quest-max-participants" name="quest-max-participants" placeholder="Qual o número máximo de participantes?"></textarea>
+        <p class="rewardComments">
+          <%= my_quest.description %>
+        </p>
       </div><!-- end columns -->
     </div><!-- end row -->
 
     <div class="row align-right">
       <div class="columns">
-        <button id="quest-submit" class="btn filled gray right">Criar missão</button>
+        <button id="quest-reward-btn" class="btn filled gray right">Recompensar e encerrar</button>
       </div><!-- end columns -->
     </div><!-- end row -->
 

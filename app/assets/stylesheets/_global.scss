@@ -126,6 +126,13 @@ svg { @include transition; }
 				background-color: darken($green, 5%);
 			}
 		}
+		&.red {
+			background-color: $red;
+
+			&:hover, &:active {
+				background-color: darken($red, 5%);
+			}
+		}
 	}
 }
 
