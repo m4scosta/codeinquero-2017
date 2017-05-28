@@ -1,0 +1,31 @@
+<div class="row">
+  <div class="columns large-12">
+      <p id="notice"><%= notice %></p>
+
+      <h1>Resgates</h1>
+
+      <table>
+        <thead>
+          <tr>
+            <th colspan="3"></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @prizes.each do |prize| %>
+            <tr>
+              <td>
+                <%= prize.name %>
+                <br>
+                <%= link_to 'Arquivar', archive_prize_path, method: :post, data: { confirm: 'Tem certeza?' } %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+
+      <br>
+
+      <%= link_to 'Novo prêmio', new_prize_path %>
+  </div>
+</div>
