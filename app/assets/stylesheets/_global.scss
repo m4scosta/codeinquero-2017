@@ -49,6 +49,11 @@ p { font-size: 18px!important; color: $darkerGray!important; }
   display: none;
 }
 
+.auth0-lock-overlay {
+  background: $darkPurple !important;
+  opacity: 1 !important;
+}
+
 /* BUTTONS */
 .btn {
 	padding: 8px 32px;
