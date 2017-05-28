@@ -7,6 +7,12 @@ $yellow: #FFAE03;
 $red: #EF5E60;
 $green: #20BC62;
 
+$namePink: #E91E63;
+$nameGray: #607D8B;
+$nameOrange: #FF5722;
+$nameBlue: #2196F3;
+$namePurple: #673AB7;
+
 $lightGray: #F9F9F9;
 $mediumGray: #DDDDDD;
 $darkGray: #9C9CA5;
@@ -34,11 +40,11 @@ $proxima: "proxima-soft", sans-serif;
 /* GLOBAL RULES */
 body { background-color: $lightGray!important; }
 .floatRight { float: right; }
-a, span, strong, p, h1, h2, h3, h4, h5, h6, input, textarea, button { font-family: $proxima!important; @include transition; }
+a, span, h1, h2, h3, h4, h5, h6, input, textarea, button { font-family: $proxima!important; @include transition; }
 
 h1, h2, h3 { font-weight: 600!important; color: $darkerGray!important; }
 
-p { font-size: 18px!important; color: $darkerGray!important; }
+p { color: $darkerGray!important; font-family: $proxima!important; }
 
 svg { @include transition; }
 
@@ -51,8 +57,14 @@ svg { @include transition; }
 }
 
 .auth0-lock-overlay {
-  background: $darkPurple !important;
+  background: $purple !important;
   opacity: 1 !important;
+}
+.auth0-lock-header-bg {
+	background: $darkPurple !important;
+}
+.auth0-lock.auth0-lock .auth0-lock-header-logo {
+	height: 20px !important;
 }
 
 /* BUTTONS */
@@ -263,14 +275,65 @@ main {
 				cursor: pointer;
 				height: 32px;
 				width: auto;
-				min-width: 32px;				
+				min-width: 32px;
+
+				&:hover, &.active {					
+					background-color: $purple;
+					color: $white;
+					
+					svg {
+						fill: $white;
+					}
+				}				
 			}			
 			&.iPoints {
 				
-				&.active {
-					span {
+				.active {
+					color: $white;				
+					background-color: $green;
+					border-color: $green;					
+				}
+				span {
+					border-color: $green;
+					color: $green;
+					float: left;
+					margin-left: 4px;
+
+					&:first-child {
+						margin-left: 0;
+					}
+					&:hover {
+						color: $white;		
+						background-color: darken($green, 5%);
+						border-color: darken($green, 5%);					
+					}
+				}
+				.addPoints {
+					background-color: $white;
+					opacity: 0;
+					visibility: hidden;
+					width: 0;
+					display: none;
+					border-color: $green;
+					
+					&.visible {
+						opacity: 1;
+						visibility: visible;
+						display: block;
+					}
+					svg {
+						fill: $green;
+						height: 12px;
+						width: auto;
+						margin: auto;
+						display: table;
+					}
+					&:hover {
 						background-color: $green;
-						border-color: $green;
+
+						svg {
+							fill: $white;	
+						}							
 					}
 				}
 			}
@@ -278,13 +341,62 @@ main {
 				span {
 					float: left;
 					margin-left: 4px;
+					position: relative;
+					z-index: 1;
 
 					&:first-child {
 						margin-left: 0;
 					}
+					&.active:nth-child(1n+1) { background-color: $nameGray; border-color: $nameGray; }					
+					&.active:nth-child(2n+2) { background-color: $nameOrange; border-color: $nameOrange; }
+					&.active:nth-child(3n+3) { background-color: $namePink; border-color: $namePink; }
+					&.active:nth-child(4n+4) { background-color: $nameBlue; border-color: $nameBlue; }
+					&.active:nth-child(5n+5) { background-color: $namePurple; border-color: $namePurple; }
+					i {							
+						cursor: pointer;
+						position: absolute;
+						top: -1px;
+						bottom: -1px;
+						left: -1px;
+						right: -1px;
+						margin: auto;
+						display: block;
+						opacity: 0;
+						visibility: hidden;
+						z-index: 2;
+						@include border-radius;
+						@include transition;
+
+						img {
+							position: absolute;
+							top: 0;
+							bottom: 0;
+							left: 0;
+							right: 0;
+							margin: auto;
+							display: table;
+						}
+					}
+					&.active:hover {
+						i {
+							opacity: 1;
+							visibility: visible;
+							background-color: $red;
+						}
+					}
 					&.addPeople {
 						background-color: $white;
-
+						opacity: 0;
+						visibility: hidden;
+						width: 0;
+						display: none;
+						border-color: $purple;
+						
+						&.visible {
+							opacity: 1;
+							visibility: visible;
+							display: block;
+						}
 						svg {
 							fill: $purple;
 							height: 12px;
@@ -316,19 +428,29 @@ main {
 					padding-left: 8px;
 					line-height: .7;
 				}
-			}
-			&:hover, &.active {
-				span {
-					background-color: $purple;
-					color: $white;
+				&.poundIndicator {
+
+					span {
+						border-color: $darkGray;
+						background-color: $white;
+
+						svg {
+							fill: $darkGray;
+						}
+						strong {
+							color: $darkGray;
+							font-weight: 500;
+						}
+					}					
 				}
-				svg {
-					fill: $white;
-				}
-			}
-		}
+			}					
+		}		
 	}
-	
+	.rewardComments {
+		margin-bottom: 0;
+		font-size: 22px!important;
+		line-height: 28px!important;
+	}
 	.availablePoints {
 		text-align: right;
 		color: $darkGray;
