@@ -40,6 +40,7 @@ h1, h2, h3 { font-weight: 600!important; color: $darkerGray!important; }
 
 p { font-size: 18px!important; color: $darkerGray!important; }
 
+svg { @include transition; }
 
 .auth0-lock-header {
   background: black !important;
@@ -97,6 +98,16 @@ p { font-size: 18px!important; color: $darkerGray!important; }
 		}
 	}
 }
+
+
+/* SPACING */
+/* Vertical */
+.mVBotXs { margin-bottom: 4px; }
+.mVBotS { margin-bottom: 8px; }
+.mVBotM { margin-bottom: 16px; }
+.mVBotL { margin-bottom: 24px; }
+.mVBotXl { margin-bottom: 32px; }
+.mVBotXxl { margin-bottom: 40px; }
 
 
 /* HEADER */
@@ -213,6 +224,8 @@ main {
 		height: auto;
 		resize: none;
 	    outline: none;
+	    padding: 0;
+    	margin-bottom: 0;
 
 		&:focus, &:hover {
 			border: none;
@@ -227,17 +240,100 @@ main {
 	button.green {
 		
 	}
+	
+	.itemSelectWrapper {
+		margin: 0;
 
-	.itemSelect {
+		.itemSelect {
+			list-style: none;
+			float: left;
+			padding-right: 8px;
 
-		> span {
-			
-			&.active {
+			> span {
+				padding: 8px;
+				text-transform: uppercase;
+				line-height: 1;
+				font-size: 13px;
+				font-weight: 600;
+				letter-spacing: .5px;
+				display: block;
+				color: $purple;
+				border: 1px solid $purple;
+				@include border-radius;
+				cursor: pointer;
+				height: 32px;
+				width: auto;
+				min-width: 32px;				
+			}			
+			&.iPoints {
 				
+				&.active {
+					span {
+						background-color: $green;
+						border-color: $green;
+					}
+				}
+			}
+			&.iPeople {
+				span {
+					float: left;
+					margin-left: 4px;
+
+					&:first-child {
+						margin-left: 0;
+					}
+					&.addPeople {
+						background-color: $white;
+
+						svg {
+							fill: $purple;
+							height: 12px;
+							width: auto;
+							margin: auto;
+							display: table;
+						}
+						&:hover {
+							background-color: $purple;
+
+							svg {
+								fill: $white;	
+							}							
+						}
+					}
+				}
+			}
+			&.iPound {
+				svg {
+					width: 14px;
+					height: auto;
+					fill: $purple;
+					float: left;
+				}
+				strong {
+					text-transform: none;
+					font-size: 16px;
+					font-weight: 400;
+					padding-left: 8px;
+					line-height: .7;
+				}
+			}
+			&:hover, &.active {
+				span {
+					background-color: $purple;
+					color: $white;
+				}
+				svg {
+					fill: $white;
+				}
 			}
 		}
-		&.iPoints {
-
-		}
+	}
+	
+	.availablePoints {
+		text-align: right;
+		color: $darkGray;
+		font-size: 14px;
+		line-height: 2.2;
+		display: block;
 	}
 }
