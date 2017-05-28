@@ -11,7 +11,8 @@ class Auth0Controller < ApplicationController
     unless User.find_by(client_id: client_id).present?
       info = session[:userinfo].info
       User.create(name: info.name, email: info.email, image: info.image,
-                  client_id: client_id)
+                  client_id: client_id, available_points: 0, received_points: 0,
+                  points_to_give: 100)
     end
 
     # Redirect to the URL you want after successful auth

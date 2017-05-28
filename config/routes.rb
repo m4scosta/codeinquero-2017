@@ -9,4 +9,8 @@ Rails.application.routes.draw do
   post '/quests'             => 'quest#create'
   post '/quest_rewards'      => 'quest_reward#create'
   post '/user_rewards'       => 'user_reward#create'
+
+  get '/resgate'             => 'prize#index', as: :prize_index
+  post '/arquivar-premio'	 => 'prize#archive', as: :archive_prize
+  post '/novo-premio'		 => 'prize#create', as: :new_prize
 end
