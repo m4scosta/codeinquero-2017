@@ -11,6 +11,6 @@ Rails.application.routes.draw do
   post '/user_rewards'       => 'user_reward#create'
 
   get '/resgate'             => 'prize#index', as: :prize_index
-  post '/arquivar-premio'	 => 'prize#archive', as: :archive_prize
-  post '/novo-premio'		 => 'prize#create', as: :new_prize
+  post '/arquivar-premio'	 => 'prize#archive', as: :archive_prize # for admins
+  post '/escolher-premio'    => 'prize#choose', as: :choose_prize
 end
