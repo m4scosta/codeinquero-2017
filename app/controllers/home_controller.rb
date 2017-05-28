@@ -1,7 +1,8 @@
 class HomeController < ApplicationController
-	before_action :authenticate_user!
+  before_action :authenticate_user!
+  include TimelineHelper
 
-	def index
+  def index
 
-	end
+  end
 end
