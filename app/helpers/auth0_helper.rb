@@ -24,7 +24,7 @@ module Auth0Helper
   # What's the current_user?
   # @return [Hash]
   def current_user
-    @current_user
+    User.last
   end
 
   # @return the path to the login page
