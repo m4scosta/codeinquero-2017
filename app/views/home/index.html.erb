@@ -42,5 +42,19 @@
         <% end %>
       </div>
     </aside>
+
+    <section class="row">
+      <div class="columns large-12">
+        <h4 class="mVBotL">Aventure-se</h4>
+      </div>
+    </section>
+
+    <aside class="row">
+      <div class="columns large-12">
+        <% other_quests.each do |quest| %>
+          <%= render 'other_quest_card', quest: quest %>
+        <% end %>
+      </div>
+    </aside>
   </div>
 </div>
