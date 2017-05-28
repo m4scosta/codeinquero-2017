@@ -1,0 +1,17 @@
+<div class="row">
+  <div class="columns large-12">
+    <h1>Ranking</h1>
+      <table class="rwd-table">
+        <tr>
+          <th>Nome</th>
+          <th>Pontos acumulados</th>
+        </tr>
+        <% @ranking.each do |user| %>
+          <tr>
+            <td data-th="Nome"><%= user.name %></td>
+            <td data-th="Pontos"><%= user.received_points %></td>
+          </tr>
+        <% end %>
+      </table>
+  </div>
+</div>
