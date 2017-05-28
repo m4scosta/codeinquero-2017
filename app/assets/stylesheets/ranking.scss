@@ -1,32 +1,60 @@
+$white: #fff;
 $purple: #2E294E;
 $darkPurple: #252140;
 $nameOrange: #FF5722;
 $darkerGray: #595457;
 $nameGray: #607D8B;
 
-.rwd-table {
-  margin: 1em 0;
-  min-width: 300px;
+/* font */
+$proxima: "proxima-soft", sans-serif;
 
+.rwd-table {
+  min-width: 300px;
+  border-radius: 3px;
+  box-shadow: 1px 2px 4px rgba(0,0,0,.1);
+  border-spacing: 0!important;
 
   img {
     border-radius: 50%;
     width: 50px;
   }
-  .tableHeader {
+  .userAvatar {
+    width: 36px;
+    text-align: center;
 
+    span {
+      padding: 8px;
+      text-transform: uppercase;
+      line-height: 1;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: .5px;
+      color: $white;
+      background-color: $purple;
+      border-radius: 3px;
+      display: block;     
+    }      
   }
-  tr {
-    // border-top: 1px solid $purple;
-    // border-bottom: 1px solid $purple;
+  tr, th, td {
+    border-top: none;
+    border-bottom: none;
+    padding: 16px!important;
   }
-
   th {
-    display: none;
+    font-family: $proxima;
+    font-size: 14px;
+    text-transform: uppercase;
+    line-height: 1;
+    letter-spacing: .5px;
+    color: $purple!important;
+    font-weight: 900;
   }
-
   td {
-    display: block;
+    font-family: $proxima;
+    font-size: 17px;
+    line-height: 1;
+    font-weight: 600;
+    color: $darkerGray;
 
     &:before {
       content: attr(data-th)"";
@@ -65,7 +93,6 @@ $nameGray: #607D8B;
 }
 
 .rwd-table {
-  background: #34495E;
   color: $darkerGray;
   overflow: hidden;
 
@@ -74,13 +101,12 @@ $nameGray: #607D8B;
   }
 
   tr {
-    //border-color: lighten(#34495E, 10%);
   }
 
   th, td {
-    margin: 0 1em;
+    //margin: 0 1em;
     @media screen and (min-width: 40em) {
-      padding: 1em !important;
+      padding: 16px!important;
     }
   }
 

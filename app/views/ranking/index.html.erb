@@ -10,10 +10,9 @@
         </tr>
         <% @ranking.each do |user| %>
           <tr>
-            <td class="userAvatar" data-th=""><%= user_avatar %></td>
+            <td class="userAvatar" data-th=""><span><%= user_avatar %></span></td>
             <td data-th="Nome:"><%= user.name %></td>
             <td data-th="Pontos:"><%= user.received_points %></td>
-
           </tr>
         <% end %>
       </table>
