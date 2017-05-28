@@ -8,7 +8,7 @@ module Auth0Helper
   end
 
   def client_id
-    session[:userinfo].extra.raw_info.client_id
+    session[:userinfo].extra.raw_info.clientID
   end
 
   # Set the @current_user or redirect to public page
