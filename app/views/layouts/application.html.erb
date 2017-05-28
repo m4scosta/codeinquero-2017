@@ -39,7 +39,7 @@
                 <strong><%= current_user.available_points %></strong> pontos
               </span>
 
-              <a class="btn ghost white" href="#">
+              <a class="btn ghost white" href="<%= prize_index_path %>">
                 Resgatar
               </a>
             </div><!-- end wallet-wrapper -->
@@ -59,7 +59,7 @@
 
     <!-- MAIN CONTENT -->
     <main>
-      
+
       <%= yield %>
 
     </main>

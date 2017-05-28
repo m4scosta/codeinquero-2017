@@ -32,4 +32,8 @@ module Auth0Helper
   def login_path
     root_path
   end
+
+  def user_admin?
+    @current_user.admin.present?
+  end
 end

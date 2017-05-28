@@ -6,12 +6,13 @@ class UserRewardController < ApplicationController
 
   def create
     to_user = User.find(params[:to_user_id])
-    reward_params = params.select { |param| USER_REWARD_ATTRS.include? param }
-    reward_params.merge!({
+    reward_params = {
+      description: params[:description],
+      points: params[:points].to_i,
       from: current_user,
       to: to_user
-    })
-    render json: UserReward.reward(**reward_params.symbolize_keys)
+    }
+    render json: UserReward.reward(**reward_params)
   end
 
 end
