@@ -8,6 +8,11 @@ $nameGray: #607D8B;
   margin: 1em 0;
   min-width: 300px;
 
+  img {
+    border-radius: 50%;
+    width: 50px;
+  }
+
   tr {
     border-top: 1px solid $purple;
     border-bottom: 1px solid $purple;
@@ -21,7 +26,7 @@ $nameGray: #607D8B;
     display: block;
 
     &:before {
-      content: attr(data-th)": ";
+      content: attr(data-th)"";
       font-weight: bold;
 
       width: 72px;

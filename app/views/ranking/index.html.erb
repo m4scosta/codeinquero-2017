@@ -3,13 +3,15 @@
     <h1>Ranking</h1>
       <table class="rwd-table">
         <tr>
+          <th></th>
           <th>Nome</th>
           <th>Pontos acumulados</th>
         </tr>
         <% @ranking.each do |user| %>
           <tr>
-            <td data-th="Nome"><%= user.name %></td>
-            <td data-th="Pontos"><%= user.received_points %></td>
+            <td data-th=""><%= user_avatar %></td>
+            <td data-th="Nome:"><%= user.name %></td>
+            <td data-th="Pontos:"><%= user.received_points %></td>
           </tr>
         <% end %>
       </table>
