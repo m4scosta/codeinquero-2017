@@ -35,6 +35,6 @@ module Auth0Helper
   end
 
   def user_admin?
-    @current_user.admin.present?
+    current_user.admin.present?
   end
 end
