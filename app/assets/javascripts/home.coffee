@@ -25,6 +25,23 @@ $ ->
     data = { to_user_id: to_user_id, quest_id: quest_id }
     postJSON(QUEST_REWARD_URL, data)
 
+  submitBtn = $('#submit-btn')
+  userRewardForm = $('#user-reward-form')
+  points = $('#points')
+  rewardedUser = $('#rewarded-user')
+  description = $('#description')
+
+  onInputChange = (ev) ->
+    if points.val() && rewardedUser.val() && description.val()
+      submitBtn.removeClass('gray');
+      submitBtn.addClass('green');
+    else
+      submitBtn.addClass('gray');
+      submitBtn.removeClass('green');
+
+  userRewardForm.find('[name]').change ->
+    onInputChange()
+
   # $.when(createUserReward(1, 'test213123', 1)).then(->
   #   console.log 'ok'
   #   $.when(createQuest('test.ico', 'description test', 1, 10)).then(->
