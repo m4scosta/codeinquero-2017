@@ -473,6 +473,7 @@ main {
 				}
 			}
 			.itemList {
+				z-index: 999;
 				position: absolute;
 				top: calc(100% - 1px);
 				left: 0;

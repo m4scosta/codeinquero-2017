@@ -55,7 +55,7 @@ $ ->
   userRewardForm.find('[name]').on 'keyup', -> handleInputChange()
 
   submitBtn.click (ev) ->
-    if !(points.val() && rewardedUser.val() && description.val())
+    if !(data['description'] && data['points'] && data['rewarded_user'])
       ev.preventDefault()
 
   userRewardForm.on 'submit', (ev) ->
