@@ -16,10 +16,11 @@
     	primaryColor: '#31324F'
     },
     auth: {
-      redirectUrl: '',
+      redirectUrl: '<%= auth_callback_url %>',
       responseType: 'code',
       params: {
-        scope: 'openid email' // Learn about scopes: https://auth0.com/docs/scopes
+        scope: 'openid email', // Learn about scopes: https://auth0.com/docs/scopes
+        state: $('meta[name="state"]').attr('content')
       }
     }
   });
