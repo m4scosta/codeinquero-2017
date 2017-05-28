@@ -1,51 +1,25 @@
 <form id="user-reward-form">
   <div class="postItem mVBotL">
     <div class="row mVBotM align-justify">
-      <div class="columns large-8">
+      <div class="columns large-7">
         <ul class="clearfix itemSelectWrapper">
+
           <li class="itemSelect iPoints">
-            <span class="clicked active">Pontos</span>
-            <!-- <select id="points" name="points">
-              <% points_options.each do |point| %>
-                <option value="<%= point %>">+ <%= point %></option>
-              <% end %>
-            </select> -->
-
+            <span>Pontos</span>
             <ul class="itemList">
-              <li>
-                +1
-              </li>
-              <li>
-                +3
-              </li>
-              <li>
-                +5
-              </li>
-            </ul><!-- end itemList -->
-
-          </li>
-          <li class="itemSelect iPeople">
-            <span class="clicked active">Quem</span>
-            <!-- <select id="rewarded-user" name="rewarded-user">
-              <% other_users.each do |user| %>
-                <option value="<%= user.id %>"><%= user.name %></option>
+              <% points_options.each do |point| %>
+                <li data-name="points" data-value="<%= point %>">+ <%= point %></li>
               <% end %>
-            </select> -->
+            </ul>
+          </li>
 
-            <ul class="itemList purple active">
-              <li>
-                <i>JP</i> <span>@jonathan.prieto</span>
-              </li>
-              <li>
-                <i>DI</i> <span>@dianeisonfire</span>
-              </li>
-              <li>
-                <i>MC</i> <span>@marcos.costa</span>
-              </li>
-              <li>
-                <i>NP</i> <span>@ney.pimenta</span>
-              </li>
-            </ul><!-- end itemList -->
+          <li class="itemSelect iPeople">
+            <span>Quem</span>
+            <ul class="itemList purple">
+              <% other_users.each do |user| %>
+                <li data-name="rewarded-user" data-value="<%= user.id %>"><i><%= user.initials.upcase %></i><span><%= user.name %></span></li>
+              <% end %>
+            </ul>
           </li>
           <!-- <li class="itemSelect iPound">
             <span>
@@ -57,7 +31,7 @@
         </ul>
       </div>
 
-      <div class="columns large-4">
+      <div class="columns large-5">
         <span class="availablePoints">
           <strong><%= current_user.points_to_give %> pontos de recompensa</strong> disponíveis
         </span>

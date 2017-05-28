@@ -31,6 +31,9 @@ $ ->
   rewardedUser = $('#rewarded-user')
   description = $('#description')
 
+  $('.itemSelect').click ->
+    $(this).children().toggleClass('active');
+
   handleInputChange = (ev) ->
     if points.val() && rewardedUser.val() && description.val()
       submitBtn.removeClass('gray');
@@ -54,6 +57,8 @@ $ ->
     ).catch(->
       alert('erro')
     )
+
+
   # $.when(createUserReward(1, 'test213123', 1)).then(->
   #   console.log 'ok'
   #   $.when(createQuest('test.ico', 'description test', 1, 10)).then(->

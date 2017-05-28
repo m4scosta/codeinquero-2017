@@ -304,15 +304,10 @@ main {
 				}
 				&.clicked {
 					border-radius: 3px 3px 0 0!important;
-				}				
+				}
 			}
 			&.iPoints {
 
-				.active {
-					color: $white;
-					background-color: $green;
-					border-color: $green;
-				}
 				span {
 					border-color: $green;
 					color: $green;
@@ -322,10 +317,19 @@ main {
 					&:first-child {
 						margin-left: 0;
 					}
+
 					&:hover {
+						color: darken($green, 10%);
+						border-color: darken($green, 10%);
+						background: $white;
+						// background-color:
+						// border-color: darken($green, 5%);
+					}
+
+					&.active {
 						color: $white;
-						background-color: darken($green, 5%);
-						border-color: darken($green, 5%);
+						background-color: $green;
+						border-color: $green;
 					}
 				}
 				.addPoints {
@@ -367,12 +371,12 @@ main {
 					&:first-child {
 						margin-left: 0;
 					}
-					&.active:nth-child(2n+2) { background-color: $nameGray; border-color: $nameGray; }					
+					&.active:nth-child(2n+2) { background-color: $nameGray; border-color: $nameGray; }
 					&.active:nth-child(3n+3) { background-color: $nameOrange; border-color: $nameOrange; }
 					&.active:nth-child(4n+4) { background-color: $namePink; border-color: $namePink; }
 					&.active:nth-child(5n+5) { background-color: $nameBlue; border-color: $nameBlue; }
 					&.active:nth-child(6n+6) { background-color: $namePurple; border-color: $namePurple; }
-					i {	
+					i {
 						cursor: pointer;
 						position: absolute;
 						top: -1px;
@@ -476,9 +480,10 @@ main {
 				margin: 0;
 				border-radius: 0 3px 3px 3px!important;
 
-				&:hover {
-					max-height: 1000px;
-				}				
+				// &:hover {
+				// 	max-height: 1000px;
+				// }
+
 				li {
 					list-style: none;
 					padding: 8px 16px;
@@ -496,8 +501,8 @@ main {
 						font-weight: 600;
 						font-size: 13px;
 						line-height: 1;
-						min-width: 30px;
-						min-height: 30px;
+						width: 36px;
+						height: 30px;
 						text-align: center;
 						display: inline-block;
 						background-color: $purple;
@@ -514,8 +519,8 @@ main {
 						overflow: hidden;
 						max-width: 150px;
 					}
-					
-					&:first-child {						
+
+					&:first-child {
 						border-radius: 0 3px 0 0!important;
 					}
 					&:last-child {
@@ -534,7 +539,7 @@ main {
 				li {
 					background-color: darken($purple, 10%);
 					padding: 8px 16px 8px 8px;
-					
+
 					&:hover {
 						background-color: $purple;
 
@@ -546,11 +551,7 @@ main {
 			}
 			span:hover {
 				border-radius: 3px 3px 0 0!important;
-
-				& ~ .itemList {
-					max-height: 1000px;
-				}
-			}		
+			}
 		}
 	}
 	.rewardComments {
