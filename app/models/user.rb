@@ -36,7 +36,7 @@ class User < ApplicationRecord
   end
 
   def initials
-    "#{first_name.first} #{last_name.first}"
+    "#{first_name.first}#{last_name.first}"
   end
 
   private
