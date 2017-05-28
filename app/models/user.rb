@@ -5,7 +5,7 @@ class User < ApplicationRecord
 
   # TODO: implementar frozen points
 
-  before_validation :set_defaults
+  before_create :set_defaults
 
   validates :client_id, presence: true
   validates :points_to_give, numericality: { only_integer: true, greater_than: 0 }
