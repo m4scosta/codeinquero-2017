@@ -6,4 +6,5 @@ Rails.application.routes.draw do
 
   post '/quests'             => 'quest#create'
   post '/quest_rewards'      => 'quest_reward#create'
+  post '/user_rewards'       => 'user_reward#create'
 end
