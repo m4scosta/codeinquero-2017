@@ -97,6 +97,7 @@ svg { @include transition; }
 	&.right { float: right; }
 	&.left { float: right; }
 	&.center { display: table; margin: auto; }
+	&.fullWidth { display: block; margin: auto; width: 100%; text-align: center; }
 
 	&.ghost {
 
@@ -112,6 +113,7 @@ svg { @include transition; }
 
 	&.filled {
 		cursor: pointer;
+		color: $white;
 
 		&.gray {
 			background-color: $darkGray;

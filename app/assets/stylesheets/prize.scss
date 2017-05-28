@@ -1,0 +1,52 @@
+/* VARIABLES */
+/* colors */
+$purple: #2E294E;
+$darkPurple: #252140;
+$white: #fff;
+$yellow: #FFAE03;
+$red: #EF5E60;
+$green: #20BC62;
+
+$namePink: #E91E63;
+$nameGray: #607D8B;
+$nameOrange: #FF5722;
+$nameBlue: #2196F3;
+$namePurple: #673AB7;
+
+$lightGray: #F9F9F9;
+$mediumGray: #DDDDDD;
+$darkGray: #9C9CA5;
+$darkerGray: #595457;
+
+/* font */
+$proxima: "proxima-soft", sans-serif;
+
+
+.prizeWrapper {
+	overflow: hidden;
+	border-radius: 3px;
+	background-color: $white;
+	box-shadow: 1px 2px 4px rgba(0,0,0,.1);
+
+	.prizeImg {
+
+	}
+	.prizeContent {
+		padding: 24px;
+	}
+	.prizeName {
+		h4 {
+			text-align: center;
+			margin: 0;
+		}
+	}
+	.prizeCost {
+		span {
+			display: block;
+			text-align: center;
+			font-size: 20px;
+			font-weight: 900;
+			color: $red;
+		}
+	}
+}
