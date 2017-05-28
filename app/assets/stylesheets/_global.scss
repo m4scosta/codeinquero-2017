@@ -244,7 +244,7 @@ main {
 	padding: 24px;
 	@include box-shadow-cards;
 
-	textarea {
+	textarea, input[type="text"] {
 		border: none;
 		font-size: 18px;
 		line-height: 26px;
@@ -261,14 +261,11 @@ main {
 			color: $darkerGray;
 		}
 	}
-
-	button.gray {
-
+	.divider {
+		width: 100%;
+		height: 1px;
+		background-color: $mediumGray;
 	}
-	button.green {
-
-	}
-
 	.itemSelectWrapper {
 		margin: 0;
 
@@ -552,6 +549,12 @@ main {
 				}
 			}		
 		}
+	}
+	.reward-time {
+		font-size: 14px;
+		color: $darkGray;
+		line-height: 1;
+		font-family: $proxima;
 	}
 	.rewardComments {
 		margin-bottom: 0;
