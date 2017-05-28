@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170527213515) do
+ActiveRecord::Schema.define(version: 20170528011024) do
 
   create_table "prizes", force: :cascade do |t|
     t.string   "name"
@@ -82,6 +82,8 @@ ActiveRecord::Schema.define(version: 20170527213515) do
     t.integer  "points_to_give"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
+    t.string   "client_id"
+    t.index ["client_id"], name: "index_users_on_client_id", unique: true
   end
 
 end
