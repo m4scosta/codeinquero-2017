@@ -19,7 +19,7 @@ module Auth0Helper
       return if @current_user.present?
     end
 
-    redirect_to login_path
+    redirect_to login_path if request.path != login_path
   end
 
   # What's the current_user?
