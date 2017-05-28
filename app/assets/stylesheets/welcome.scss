@@ -1,3 +1,158 @@
 // Place all the styles related to the welcome controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+/* VARIABLES */
+/* colors */
+$purple: #2E294E;
+$darkPurple: #252140;
+$white: #fff;
+$yellow: #FFAE03;
+$red: #EF5E60;
+$green: #20BC62;
+
+$namePink: #E91E63;
+$nameGray: #607D8B;
+$nameOrange: #FF5722;
+$nameBlue: #2196F3;
+$namePurple: #673AB7;
+
+$lightGray: #F9F9F9;
+$mediumGray: #DDDDDD;
+$darkGray: #9C9CA5;
+$darkerGray: #595457;
+
+/* font */
+$proxima: "proxima-soft", sans-serif;
+
+/* BUTTONS */
+.btn {
+	padding: 8px 32px;
+	border-radius: 3px;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	font: 13px/2 $proxima;
+	font-weight: 600;
+	color: $white;
+	min-height: 40px;
+
+	&.right { float: right; }
+	&.left { float: right; }
+	&.center { display: table; margin: auto; }
+
+	&.ghost {
+
+		&.white {
+			background-color: transparentize($white, .9);
+
+			&:hover, &:active {
+				color: $yellow;
+				background-color: transparentize($white, .85);
+			}
+		}
+	}
+
+	&.filled {
+		cursor: pointer;
+
+		&.gray {
+			background-color: $darkGray;
+			cursor: not-allowed!important;
+		}
+		&.green {
+			background-color: $green;
+
+			&:hover, &:active {
+				background-color: darken($green, 5%);
+			}
+		}
+	}
+}
+
+
+/* SPACING */
+/* Vertical */
+.mVBotXs { margin-bottom: 4px; }
+.mVBotS { margin-bottom: 8px; }
+.mVBotM { margin-bottom: 16px; }
+.mVBotL { margin-bottom: 24px; }
+.mVBotXl { margin-bottom: 32px; }
+.mVBotXxl { margin-bottom: 40px; }
+
+
+
+/* LOGIN */
+.loginBg {
+	position: fixed;
+	z-index: 9999999;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin: auto;
+	background-color: $darkPurple;
+
+	.loginWrapper {
+		width: 30vw;
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		margin: auto;
+		display: table;
+		vertical-align: middle;
+		
+		.loginLogo {
+			margin-bottom: 32px;
+
+			img {
+				display: block;
+				margin: auto;
+			}
+		}	
+
+		.loginFields {
+			background-color: $white;
+			padding: 24px;
+			box-shadow: 1px 3px 5px rgba(0,0,0,.35);
+			border-radius: 3px;
+			
+			.divider {
+				width: 100%;
+				height: 1px;
+				background-color: $mediumGray;
+			}
+
+			input {
+				border: none;
+				font-size: 18px;
+				line-height: 26px;
+				box-shadow: none;
+				height: auto;
+				resize: none;
+			    outline: none;
+			    padding: 0;
+		    	margin-bottom: 0;
+
+				&:focus, &:hover {
+					border: none;
+					box-shadow: none;
+					color: $red;
+				}
+			}
+			.btn {
+				width: 100%;
+			}
+			a {
+				color: $darkGray;
+				text-align: center;
+				display: table;
+				margin: auto;
+
+				&:hover {
+					color: $red;
+				}
+			}
+		}
+	}
+}
