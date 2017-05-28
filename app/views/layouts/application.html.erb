@@ -10,11 +10,49 @@
     <%= javascript_include_tag "application", 'data-turbolinks-track': 'reload' %>
     <%= csrf_meta_tags %>
     <%= state_meta_tag %>
+
+    <!-- fonts typekit -->
+    <script src="https://use.typekit.net/gow5cks.js"></script>
+    <script>try{Typekit.load({ async: true });}catch(e){}</script>
+
+
   </head>
 
   <body>
 
     <%= yield %>
+    <header>
+      <div class="row align-justify">
+
+        <!-- LOGO -->
+        <div class="columns large-6">
+          <a class="logo" href="#">
+            Office<strong>Heroes</strong>
+          </a>
+        </div><!-- end columns -->
+
+        <!-- WALLET & USER -->
+        <div class="columns large-6">
+
+          <div class=" floatRight userAvatar">
+            <a class="clearfix" href="#">
+              <span>JP</span> Jonathan
+            </a>
+          </div>
+
+          <div class="floatRight walletWrapper clearfix">
+            <span class="walletPoints">
+              <strong>182</strong> pontos              
+            </span>
+
+            <a class="btn ghost white" href="#">
+              Resgatar
+            </a>
+          </div><!-- end wallet-wrapper -->
+          
+        </div><!-- end columns -->
+      </div>
+    </header>
 
   </body>
 </html>
