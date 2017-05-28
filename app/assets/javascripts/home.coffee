@@ -31,7 +31,7 @@ $ ->
   rewardedUser = $('#rewarded-user')
   description = $('#description')
 
-  onInputChange = (ev) ->
+  handleInputChange = (ev) ->
     if points.val() && rewardedUser.val() && description.val()
       submitBtn.removeClass('gray');
       submitBtn.addClass('green');
@@ -39,9 +39,21 @@ $ ->
       submitBtn.addClass('gray');
       submitBtn.removeClass('green');
 
-  userRewardForm.find('[name]').change ->
-    onInputChange()
+  userRewardForm.find('[name]').on 'keyup', -> handleInputChange()
 
+  userRewardForm.find('[name]').change -> handleInputChange()
+
+  submitBtn.click (ev) ->
+    if !(points.val() && rewardedUser.val() && description.val())
+      ev.preventDefault()
+
+  userRewardForm.on 'submit', (ev) ->
+    ev.preventDefault()
+    $.when(createUserReward(rewardedUser.val(), description.val(), points.val())).then(->
+      location.reload()
+    ).catch(->
+      alert('erro')
+    )
   # $.when(createUserReward(1, 'test213123', 1)).then(->
   #   console.log 'ok'
   #   $.when(createQuest('test.ico', 'description test', 1, 10)).then(->

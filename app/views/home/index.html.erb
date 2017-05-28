@@ -12,7 +12,13 @@
         <%= render 'user_reward_form' %>
 
         <h4>Timeline</h4>
-        <%= render 'user_reward_card' %>
+        <% timeline.each do |reward| %>
+          <% if reward.is_a?(QuestReward) %>
+            <%= render 'quest_reward_card', reward: reward %>
+          <% else %>
+            <%= render 'user_reward_card', reward: reward %>
+          <% end %>
+        <% end %>
       </div><!-- end columns -->
     </section>
   </div>

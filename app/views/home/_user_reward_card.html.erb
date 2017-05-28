@@ -1,18 +1,9 @@
 <div class="postItem mVBotL">
-  <div class="row mVBotM">
-    <div class="columns">
-      <p class="rewardComments">
-        <strong>Ney:</strong>
-        Por participar na Code in Quero 2017
-      </p>
-    </div><!-- end columns -->
-  </div><!-- end row -->
-
-  <div class="row align-justify">
+  <div class="row align-justify mVBotM">
     <div class="columns large-12">
       <ul class="clearfix itemSelectWrapper">
         <li class="itemSelect iPoints">
-          <span class="active">+20</span>
+          <span class="active">+<%= reward.total_points %></span>
 
           <span id="addPoints" class="addPoints visible">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10">
@@ -20,23 +11,11 @@
             </svg>
           </span>
         </li>
+
         <li class="itemSelect iPeople">
-          <span class="active">
-            JP <i><img src="<%= image_path('i-close.svg') %>"></i>
-          </span>
-          <span data-tooltip aria-haspopup="true" class="has-tip top active" data-disable-hover="false" tabindex="2" title="@ney.pimenta">NP <i><img src="<%= image_path('i-close.svg') %>"></i>
-          </span>
-          <span class="active">DI <i><img src="<%= image_path('i-close.svg') %>"></i>
-          </span>
-          <span class="active">MC <i><img src="<%= image_path('i-close.svg') %>"></i>
-          </span>
-          <span class="active">NP <i><img src="<%= image_path('i-close.svg') %>"></i>
-          </span>
-          <span class="active">DI <i><img src="<%= image_path('i-close.svg') %>"></i>
-          </span>
-          <span class="active">MC <i><img src="<%= image_path('i-close.svg') %>"></i>
-          </span>
+          <span data-tooltip aria-haspopup="true" class="has-tip top active" data-disable-hover="false" tabindex="2" title="<%= reward.rewarded_user.at_name %>"><%= reward.rewarded_user.initials %> </span>
         </li>
+
         <li class="itemSelect iPound poundIndicator">
           <span class="active clearfix">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
@@ -49,4 +28,20 @@
       </ul>
     </div>
   </div><!-- end row -->
+
+  <div class="row">
+    <div class="columns">
+      <p class="rewardComments">
+        <strong><%= reward.start_user.at_name %></strong> recompensou<strong> <%= reward.rewarded_user.at_name %></strong> por <%= reward.description %>
+      </p>
+    </div><!-- end columns -->
+  </div><!-- end row -->
+
+  <div class="row">
+    <div class="columns">
+      <p class="rewardComments">
+        <small style="font-size: 14px">Recompensado em <%= reward.created_at.strftime('%d/%m/%Y %H:%M') %></small>
+      </p>
+    </div>
+  </div>
 </div><!-- end postItem -->
