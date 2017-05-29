@@ -15,6 +15,7 @@ class PrizeController < ApplicationController
 
     if prize.present? && prize.quantity > 0 && current_user.choose_prize(prize)
       prize.decrease_quantity!
+      flash[:info] = "Parabens!"
       render json: {}
     else
       head :conflict

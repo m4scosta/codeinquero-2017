@@ -1,26 +1,21 @@
-<form id="user-reward-form">
+<form data-quest-id="<%= my_quest.id %>" id="quest-reward-form">
   <div class="postItem mVBotL">
     <div class="row mVBotM align-justify">
-      <div class="columns large-7">
+      <div class="columns large-9">
         <ul class="clearfix itemSelectWrapper">
-
           <li class="itemSelect iPoints">
-            <span>Pontos</span>
-            <ul class="itemList">
-              <% points_options.each do |point| %>
-                <li data-name="points" data-value="<%= point %>" data-label="+ <%= point %>">+ <%= point %></li>
-              <% end %>
-            </ul>
+            <span class="active">+<%= my_quest.reward_points %></span>
           </li>
 
           <li class="itemSelect iPeople">
-            <span>Quem</span>
+            <span>Quem concluiu?</span>
             <ul class="itemList purple">
               <% other_users.each do |user| %>
-                <li data-name="rewarded_user" data-value="<%= user.id %>" data-label="<%= user.initials.upcase %>"><i><%= user.initials.upcase %></i><span><%= user.at_name %></span></li>
+                <li data-name="quest-who-completed" data-value="<%= user.id %>" data-label="<%= user.initials.upcase %>"><i><%= user.initials.upcase %></i><span><%= user.at_name %></span></li>
               <% end %>
             </ul>
           </li>
+
           <li class="itemSelect iPound">
             <span>
               <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
@@ -31,22 +26,24 @@
         </ul>
       </div>
 
-      <div class="columns large-5">
+      <div class="columns large-3">
         <span class="availablePoints">
-          <%= current_user.points_to_give %> pontos disponíveis
+          máximo <%= my_quest.max_participants %> participantes
         </span>
       </div><!-- end columns -->
     </div><!-- end row -->
 
     <div class="row mVBotM">
-      <div class="columns large-7">
-        <textarea id="description" name="description" placeholder="Quero recompensar por..."></textarea>
+      <div class="columns">
+        <p class="rewardComments">
+          <%= my_quest.description %>
+        </p>
       </div><!-- end columns -->
     </div><!-- end row -->
 
     <div class="row align-right">
       <div class="columns">
-        <button id="submit-btn" class="btn filled gray right">Recompensar</button>
+        <button id="quest-reward-btn" class="btn filled gray right">Recompensar e encerrar</button>
       </div><!-- end columns -->
     </div><!-- end row -->
 

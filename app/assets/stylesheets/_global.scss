@@ -97,6 +97,7 @@ svg { @include transition; }
 	&.right { float: right; }
 	&.left { float: right; }
 	&.center { display: table; margin: auto; }
+	&.fullWidth { display: block; margin: auto; width: 100%; text-align: center; }
 
 	&.ghost {
 
@@ -112,6 +113,7 @@ svg { @include transition; }
 
 	&.filled {
 		cursor: pointer;
+		color: $white;
 
 		&.gray {
 			background-color: $darkGray;
@@ -122,6 +124,13 @@ svg { @include transition; }
 
 			&:hover, &:active {
 				background-color: darken($green, 5%);
+			}
+		}
+		&.red {
+			background-color: $red;
+
+			&:hover, &:active {
+				background-color: darken($red, 5%);
 			}
 		}
 	}
@@ -295,9 +304,9 @@ main {
 					// background-color: $purple;
 					// color: $white;
 
-					svg {
-						fill: $white;
-					}
+					// svg {
+					// 	fill: $white;
+					// }
 				}
 
 				&.clicked {
